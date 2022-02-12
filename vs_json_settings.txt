@@ -1,0 +1,27 @@
+{
+    "workbench.colorTheme": "Snazzy Light",
+    "workbench.iconTheme": "material-icon-theme",
+    "window.zoomLevel": 1,
+    "editor.tokenColorCustomizations": {
+        "[Snazzy Light]": {
+            "comments": {
+                "fontStyle": "italic",
+                "foreground": "#9c27b0",
+            }
+        }
+    },
+    "prettier.tabWidth": 4,
+    "prettier.printWidth": 200,
+    "[html]": {
+        "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+}
