@@ -1,7 +1,6 @@
 {
-    "workbench.colorTheme": "Snazzy Light",
-    "workbench.iconTheme": "material-icon-theme",
     "window.zoomLevel": 1,
+    "workbench.colorTheme": "Snazzy Light",
     "editor.tokenColorCustomizations": {
         "[Snazzy Light]": {
             "comments": {
@@ -10,18 +9,8 @@
             }
         }
     },
-    "prettier.tabWidth": 4,
-    "prettier.printWidth": 200,
+    "workbench.iconTheme": "material-icon-theme",
     "[html]": {
         "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
-    },
-    "[css]": {
-        "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
     },
 }
