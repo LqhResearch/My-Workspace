@@ -1,16 +1,20 @@
 {
     "window.zoomLevel": 1,
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.colorTheme": "Snazzy Light",
     "editor.tokenColorCustomizations": {
         "[Snazzy Light]": {
             "comments": {
                 "fontStyle": "italic",
-                "foreground": "#9c27b0",
+                "foreground": "#008000",
             }
         }
     },
-    "workbench.iconTheme": "material-icon-theme",
-    "[html]": {
-        "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
-    },
+    "html.format.wrapLineLength": 200,
+    "phpfmt.passes": [
+        "AlignDoubleArrow",
+        "AlignPHPCode",
+        "DoubleToSingleQuote",
+        "ShortArray"
+    ],
 }
