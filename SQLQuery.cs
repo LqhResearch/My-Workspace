@@ -7,28 +7,12 @@ namespace DataProvider
 {
     public class SQLQuery
     {
-        public string connectionString;
-
-        /// <summary>
-        /// Kiến trúc Singleton
-        /// </summary>
-        private static SQLQuery instance;
-        public static SQLQuery Instance
-        {
-            get
-            {
-                if (instance == null)
-                    instance = new SQLQuery();
-                return SQLQuery.instance;
-            }
-            private set => instance = value;
-        }
-        private SQLQuery() { }
+        public static string connectionString;
 
         /// <summary>
         /// Truy vấn trả về một DataTable, phù hợp thực hiện các truy vấn như Select.
         /// </summary>
-        public DataTable ExecuteQuery(string query, object[] parameters = null)
+        public static DataTable ExecuteQuery(string query, object[] parameters = null)
         {
             DataTable dt = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -69,7 +53,7 @@ namespace DataProvider
         /// <summary>
         /// Truy vấn phù hợp thực hiện các truy vấn như Insert, Update, Delete.
         /// </summary>
-        public int ExecuteNonQuery(string query, object[] parameters = null)
+        public static int ExecuteNonQuery(string query, object[] parameters = null)
         {
             int data = 0;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -109,7 +93,7 @@ namespace DataProvider
         /// <summary>
         /// Trả về một giá trị duy nhất - ở hàng đầu tiên, cột đầu tiên
         /// </summary>
-        public object ExecuteScalar(string query, object[] parameters = null)
+        public static object ExecuteScalar(string query, object[] parameters = null)
         {
             object data = 0;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -150,7 +134,7 @@ namespace DataProvider
         /// Kiểm tra khoá chính có tồn tại hay không?
         /// </summary>
         /// <returns></returns>
-        public bool HasExistPrimaryKey(string tableName, string primaryKeyName, object primaryKeyValue)
+        public static bool HasExistPrimaryKey(string tableName, string primaryKeyName, object primaryKeyValue)
         {
             bool check = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
