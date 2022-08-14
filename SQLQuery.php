@@ -1,10 +1,10 @@
 <?php
 class SQLQuery
 {
-    private const HOST = 'localhost';
-    private const USERNAME = 'root';
-    private const PASSWORD = '';
-    private const DBNAME = 'db_name';
+    const HOST = 'localhost';
+    const USERNAME = 'root';
+    const PASSWORD = '';
+    const DBNAME = 'db_name';
 
     /**
      * Tạo kết nối với CSDL
