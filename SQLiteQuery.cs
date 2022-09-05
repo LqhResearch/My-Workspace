@@ -7,7 +7,7 @@ namespace DataProvider
 {
     public class SQLiteQuery
     {
-        string connectionString;
+        static string connectionString = @"Data Source=;Initial Catalog=;Integrated Security=True";
 
         /// <summary>
         /// Truy vấn trả về một DataTable, phù hợp thực hiện các truy vấn như Select.

@@ -6,7 +6,7 @@
         "[Snazzy Light]": {
             "comments": {
                 "fontStyle": "italic",
-                "foreground": "#008000",
+                "foreground": "#008000"
             }
         }
     },
@@ -16,5 +16,5 @@
         "AlignPHPCode",
         "DoubleToSingleQuote",
         "ShortArray"
-    ],
+    ]
 }

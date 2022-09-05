@@ -7,7 +7,7 @@ namespace DataProvider
 {
     public class SQLQuery
     {
-        string connectionString;
+        static string connectionString = @"Data Source=;Initial Catalog=;Integrated Security=True";
 
         /// <summary>
         /// Truy vấn trả về một DataTable, phù hợp thực hiện các truy vấn như Select.
@@ -175,7 +175,7 @@ namespace DataProvider
         /// </summary>
         /// <param name="tableName"></param>
         /// <returns></returns>
-        public DataTable GetTable(string tableName)
+        public static DataTable GetTable(string tableName)
         {
             DataTable dt = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
