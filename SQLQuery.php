@@ -12,6 +12,7 @@ class SQLQuery
     private static function Connect()
     {
         $connect = new mysqli(self::HOST, self::USERNAME, self::PASSWORD, self::DBNAME);
+        $connect->set_charset('utf8');
         if ($connect->connect_error) {
             die('Connection failed: ' . $connect->connect_error);
         }
@@ -62,9 +63,9 @@ class SQLQuery
     /**
      * Sử dụng cho câu truy vấn SELECT có tính năng phân trang
      */
-    public static function GetDataWithPagination($query, $offset = 10, $page = 1)
+    public static function GetDataWithPagination($query, $tableName, $offset = 10, $page = 1)
     {
-        $countAll = self::GetData('SELECT count(*) FROM categories', ['cell' => 0]);
+        $countAll = self::GetData("SELECT count(*) FROM $tableName", ['cell' => 0]);
 
         $start = ($page - 1) * $offset;
         $data = self::GetData($query . " LIMIT $start, $offset");
