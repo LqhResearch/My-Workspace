@@ -1,20 +1,22 @@
 {
-    "window.zoomLevel": 1,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Snazzy Light",
+    "workbench.colorTheme": "Dracula",
     "editor.tokenColorCustomizations": {
-        "[Snazzy Light]": {
+        "[Dracula]": {
             "comments": {
                 "fontStyle": "italic",
-                "foreground": "#008000"
+                "foreground": "#999999"
             }
         }
     },
-    "html.format.wrapLineLength": 200,
+    "html.format.wrapLineLength": 256,
     "phpfmt.passes": [
         "AlignDoubleArrow",
         "AlignPHPCode",
         "DoubleToSingleQuote",
         "ShortArray"
-    ]
+    ],
+    "files.autoSave": "afterDelay",
+    "tabnine.experimentalAutoImports": true,
+    "window.zoomLevel": 1,
 }
