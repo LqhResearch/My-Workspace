@@ -18,5 +18,5 @@
     ],
     "files.autoSave": "afterDelay",
     "tabnine.experimentalAutoImports": true,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 1
 }
