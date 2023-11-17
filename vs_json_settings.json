@@ -1,14 +1,6 @@
 {
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Dracula",
-    "editor.tokenColorCustomizations": {
-        "[Dracula]": {
-            "comments": {
-                "fontStyle": "italic",
-                "foreground": "#999999"
-            }
-        }
-    },
+    "workbench.colorTheme": "Snazzy Light",
     "html.format.wrapLineLength": 256,
     "phpfmt.passes": [
         "AlignDoubleArrow",
@@ -17,6 +9,5 @@
         "ShortArray"
     ],
     "files.autoSave": "afterDelay",
-    "tabnine.experimentalAutoImports": true,
     "window.zoomLevel": 1
 }

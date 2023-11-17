@@ -4,7 +4,7 @@ class SQLQuery
     const HOST = 'localhost';
     const USERNAME = 'root';
     const PASSWORD = '';
-    const DBNAME = 'fly_high';
+    const DBNAME = 'db_name';
 
     /**
      * Tạo kết nối với cơ sở dữ liệu

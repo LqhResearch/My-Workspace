@@ -6,26 +6,44 @@
   - Chuyển tất cả URI có phương thức http sang phương thức https.
   - Chuyển tất cả URI sang thư mục `public`.
 
-```html
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <system.webServer>
+        <defaultDocument>
+            <files>
+                <clear />
+                <!-- Thiết lập tài liệu mặc định là index.php -->
+                <add value="index.php" />
+            </files>
+        </defaultDocument>
+
         <rewrite>
             <rules>
-                <!-- RewriteRule 1 -->
-                <rule name="HTTPS Redirect" stopProcessing="true">
-                    <match url="^(.*)$" />
+                <!-- Luật chuyển hướng sang HTTPS -->
+                <rule name="Redirect to HTTPS" stopProcessing="true">
+                    <match url="(.*)" />
                     <conditions>
-                        <add input="{HTTPS}" pattern="off" />
+                        <add input="{HTTPS}" pattern="off" ignoreCase="true" />
                     </conditions>
                     <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" redirectType="Permanent" />
                 </rule>
-                <!-- RewriteRule 2 -->
-                <rule name="Public Folder" stopProcessing="true">
-                    <match url="^(.*)$" />
+
+                <!-- Luật Force Public của Laravel -->
+                <rule name="Laravel Force public">
+                    <match url="(.*)" ignoreCase="false" />
+                    <action type="Rewrite" url="public/{R:1}" />
+                </rule>
+
+                <!-- Luật Routes của Laravel -->
+                <rule name="Laravel Routes" stopProcessing="true">
                     <conditions>
-                        <add input="{REQUEST_URI}" pattern="^/public/" negate="true" />
+                        <!-- Không áp dụng nếu là file hoặc thư mục tồn tại -->
+                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
                     </conditions>
-                    <action type="Rewrite" url="/public/{R:1}" />
+                    <match url="^" ignoreCase="false" />
+                    <action type="Rewrite" url="public/index.php" />
                 </rule>
             </rules>
         </rewrite>
