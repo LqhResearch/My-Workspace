@@ -1,6 +1,6 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Snazzy Light",
+    "editor.stickyScroll.enabled": false,
+    "files.autoSave": "afterDelay",
     "html.format.wrapLineLength": 256,
     "phpfmt.passes": [
         "AlignDoubleArrow",
@@ -8,6 +8,8 @@
         "DoubleToSingleQuote",
         "ShortArray"
     ],
-    "files.autoSave": "afterDelay",
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Snazzy Light",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.tree.enableStickyScroll": false
 }
