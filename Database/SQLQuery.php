@@ -48,6 +48,13 @@ class SQLQuery
             if (is_array($format)) {
                 $connect = self::Connect();
                 $statement = $connect->prepare($query);
+
+                if (isset($format['params'])) {
+                    foreach ($format['params'] as $param => $value) {
+                        $statement->bindParam($param, $value);
+                    }
+                }
+
                 $statement->execute();
 
                 $arr = [];
@@ -56,14 +63,12 @@ class SQLQuery
                         $arr[] = $value;
                     }
 
-                    // Trả về một giá trị theo key hoặc index
                     if (isset($format['cell'])) {
                         $formatRow = isset($format['row']) ? $format['row'] : 0;
                         $formatKey = is_numeric($format['cell']) ? array_keys($arr[$formatRow])[$format['cell']] : $format['cell'];
                         return isset($formatRow) ? $arr[$formatRow][$formatKey] : $arr[0][$formatKey];
                     }
 
-                    // Trả về một dòng dữ liệu tại index
                     if (isset($format['row'])) {
                         return $arr[$format['row']];
                     }
@@ -87,11 +92,23 @@ class SQLQuery
     public static function GetDataWithPagination($query, $page = 1, $offset = 10)
     {
         try {
-            $countAll = count(self::GetData($query));
+            $countQuery = 'SELECT COUNT(*) FROM (' . $query . ') AS total';
+            $connect = self::Connect();
+            $countStatement = $connect->prepare($countQuery);
+            $countStatement->execute();
+            $countAll = $countStatement->fetchColumn();
 
             $start = ($page - 1) * $offset;
-            $data = self::GetData($query . " LIMIT $start, $offset");
+            $dataQuery = $query . ' LIMIT :start, :offset';
+            $dataStatement = $connect->prepare($dataQuery);
+
+            $dataStatement->bindParam(':start', $start, PDO::PARAM_INT);
+            $dataStatement->bindParam(':offset', $offset, PDO::PARAM_INT);
+            $dataStatement->execute();
+
+            $data = $dataStatement->fetchAll(PDO::FETCH_ASSOC);
             $end = $start + count($data);
+
             return [
                 'data'        => $data,
                 'start'       => $start + 1,
@@ -109,11 +126,18 @@ class SQLQuery
      * @param string $query Câu truy vấn
      * @return int Số lượng bản ghi thay đổi thành công
      */
-    public static function NonQuery($query)
+    public static function NonQuery($query, $params = [])
     {
         try {
             $connect = self::Connect();
             $statement = $connect->prepare($query);
+
+            if (!empty($params)) {
+                foreach ($params as $param => $value) {
+                    $statement->bindParam($param, $value);
+                }
+            }
+
             $statement->execute();
             $connect = null;
             return $statement->rowCount();
