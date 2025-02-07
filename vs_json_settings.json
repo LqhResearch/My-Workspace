@@ -1,5 +1,6 @@
 {
     "editor.stickyScroll.enabled": false,
+    "workbench.tree.enableStickyScroll": false,
     "html.format.wrapLineLength": 256,
     "phpfmt.passes": [
         "AlignDoubleArrow",
@@ -7,13 +8,12 @@
         "DoubleToSingleQuote",
         "ShortArray"
     ],
-    "window.zoomLevel": 1,
     "workbench.colorTheme": "Snazzy Light",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.tree.enableStickyScroll": false,
+    "window.zoomLevel": 1,
     "files.autoSave": "afterDelay",
-    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.validate.enable": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "diffEditor.ignoreTrimWhitespace": false,
-    "workbench.editor.empty.hint": "hidden"
+    "typescript.validate.enable": true,
+    "typescript.updateImportsOnFileMove.enabled": "always"
 }
