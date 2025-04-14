@@ -1,19 +1,22 @@
 {
-    "editor.stickyScroll.enabled": false,
+    "workbench.colorTheme": "Dracula Theme",
+    "workbench.iconTheme": "material-icon-theme",
+    "window.zoomLevel": 1,
     "workbench.tree.enableStickyScroll": false,
+    "editor.stickyScroll.enabled": false,
+    "files.autoSave": "afterDelay",
     "html.format.wrapLineLength": 256,
+    "css.lint.unknownAtRules": "ignore",
+    "javascript.validate.enable": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.validate.enable": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "git.openRepositoryInParentFolders": "never",
+    "diffEditor.ignoreTrimWhitespace": false,
     "phpfmt.passes": [
         "AlignDoubleArrow",
         "AlignPHPCode",
         "DoubleToSingleQuote",
         "ShortArray"
-    ],
-    "workbench.colorTheme": "Snazzy Light",
-    "workbench.iconTheme": "material-icon-theme",
-    "window.zoomLevel": 1,
-    "files.autoSave": "afterDelay",
-    "javascript.validate.enable": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "typescript.validate.enable": true,
-    "typescript.updateImportsOnFileMove.enabled": "always"
+    ]
 }
