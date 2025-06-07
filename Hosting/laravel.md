@@ -1,10 +1,8 @@
-# Cấu hình file `.htaccess` trong hosting, vps và server
+# Laravel
 
-## 1. Hosting
-
-- Sử dụng cho **Laravel** có công dụng là:
-  - Chuyển tất cả URI có phương thức http sang phương thức https.
-  - Chuyển tất cả URI sang thư mục `public`.
+- Bật module Rewrite của Apache.
+- Chuyển hướng tất cả truy cập sang HTTPS nếu chưa dùng.
+- Nếu URL không bắt đầu bằng `/public/`, tự động chuyển hướng đến thư mục `/public/`.
 
 ```md
 <IfModule mod_rewrite.c>
@@ -20,6 +18,6 @@
 
     # Chuyển hướng tất cả các yêu cầu đến thư mục /public/
     RewriteRule ^(.*)$ /public/$1 [L]
-</IfModule>
 
+</IfModule>
 ```

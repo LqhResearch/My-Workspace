@@ -1,0 +1,47 @@
+{
+    // Theme & Icon
+    "workbench.colorTheme": "Dracula Theme",
+    "workbench.iconTheme": "material-icon-theme",
+    // Window & Editor UI
+    "window.zoomLevel": 1,
+    "workbench.tree.enableStickyScroll": false,
+    "editor.stickyScroll.enabled": false,
+    // Files & Format
+    "files.autoSave": "afterDelay",
+    "html.format.wrapLineLength": 256,
+    // Import Update on File Move
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    // Linting & Validation
+    "css.lint.unknownAtRules": "ignore",
+    "javascript.validate.enable": true,
+    "typescript.validate.enable": true,
+    // Diff Editor
+    "diffEditor.ignoreTrimWhitespace": false,
+    // PHP Formatter
+    "phpfmt.passes": [
+        "AlignDoubleArrow",
+        "AlignPHPCode",
+        "DoubleToSingleQuote",
+        "ShortArray"
+    ],
+    // Language Specific Settings
+    "[javascript]": {
+        "editor.formatOnSave": true
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": true,
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.formatOnSave": true
+    },
+}
