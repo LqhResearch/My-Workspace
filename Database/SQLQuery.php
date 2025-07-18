@@ -89,12 +89,15 @@ class SQLQuery
      * @param int $offset Số lượng object cho một trang
      * @return array $arr
      */
-    public static function GetDataWithPagination($query, $page = 1, $offset = 10)
+    public static function GetDataWithPagination($query, $page = 1, $offset = 10, $params = [])
     {
         try {
             $countQuery = 'SELECT COUNT(*) FROM (' . $query . ') AS total';
             $connect = self::Connect();
             $countStatement = $connect->prepare($countQuery);
+            foreach ($params as $key => $value) {
+                $countStatement->bindValue($key, $value);
+            }
             $countStatement->execute();
             $countAll = $countStatement->fetchColumn();
 
@@ -102,8 +105,11 @@ class SQLQuery
             $dataQuery = $query . ' LIMIT :start, :offset';
             $dataStatement = $connect->prepare($dataQuery);
 
-            $dataStatement->bindParam(':start', $start, PDO::PARAM_INT);
-            $dataStatement->bindParam(':offset', $offset, PDO::PARAM_INT);
+            foreach ($params as $key => $value) {
+                $dataStatement->bindValue($key, $value);
+            }
+            $dataStatement->bindValue(':start', $start, PDO::PARAM_INT);
+            $dataStatement->bindValue(':offset', $offset, PDO::PARAM_INT);
             $dataStatement->execute();
 
             $data = $dataStatement->fetchAll(PDO::FETCH_ASSOC);
