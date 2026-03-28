@@ -21,3 +21,9 @@
     </system.webServer>
 </configuration>
 ```
+
+- Script deploy/build
+
+```bash
+npm run build && xcopy public .next\\standalone\\public /E /I /Y && xcopy .next\\static .next\\standalone\\.next\\static /E /I /Y && copy web.config .next\\standalone\\web.config /Y && mkdir .next\\standalone\\iis-logs
+```
